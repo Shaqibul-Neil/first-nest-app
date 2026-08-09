@@ -40,7 +40,7 @@ export class StudentsController {
   @Patch(':id')
   patchStudent(
     @Param('id') id: string,
-    body: Partial<{ name: string; age: number }>,
+    @Body() body: Partial<{ name: string; age: number }>,
   ) {
     return this.studentsService.patchStudent(Number(id), body);
   }
