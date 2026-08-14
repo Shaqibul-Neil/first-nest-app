@@ -16,6 +16,7 @@ import { DatabaseController } from './database/database.controller';
 import { ConfigModule } from '@nestjs/config';
 import { EvService } from './ev/ev.service';
 import { EvController } from './ev/ev.controller';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { EvController } from './ev/ev.controller';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    MongooseModule.forRoot(process.env.MONGODB_DATABASE_URL!),
   ],
   controllers: [
     AppController,
