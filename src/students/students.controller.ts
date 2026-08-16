@@ -19,4 +19,14 @@ export class StudentsController {
   async addStudent(@Body() data: Partial<Student>) {
     return this.studentsService.createStudent(data);
   }
+
+  @Get()
+  async getAllStudent() {
+    return this.studentsService.getAllStudents();
+  }
+
+  @Get(':id')
+  async getStudentById(@Param('id') id: string) {
+    return this.studentsService.getStudentById(id);
+  }
 }
